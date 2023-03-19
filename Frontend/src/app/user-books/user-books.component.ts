@@ -38,36 +38,21 @@ export class UserBooksComponent {
   addCount(isbn: string): void {
     this.bookService.addBookReadCount(isbn).subscribe(_ => {
       const index = this.userBooks.findIndex(book => book.book_isbn === isbn);
-      this.userBooks[index].read_count = String(Number(this.userBooks[index].read_count)+1);}
-      // (response) => {
-      //   console.log('Book read count updated:', response);
-      //   location.reload();
-      // },
-      // (error) => {
-      //   console.log('Error updating book read count:', error);
-      // }
-    )
+      this.userBooks[index].read_count = String(Number(this.userBooks[index].read_count) + 1);
+    })
   }
 
   removeCount(isbn: string): void {
     this.bookService.removeBookReadCount(isbn).subscribe(_ => {
       const index = this.userBooks.findIndex(book => book.book_isbn === isbn);
-      if(Number(this.userBooks[index].read_count)>0) {this.userBooks[index].read_count = String(Number(this.userBooks[index].read_count)-1)};
-    }
-      // (response) => {
-      //   console.log('Book read count updated:', response);
-      //   location.reload();
-      // },
-      // (error) => {
-      //   console.log('Error updating book read count:', error);
-      // }
-    )
+      if (Number(this.userBooks[index].read_count) > 0) { this.userBooks[index].read_count = String(Number(this.userBooks[index].read_count) - 1) };
+    })
   }
 
   delete(isbn: string): void {
     this.bookService.removeFromLibrary(isbn).subscribe(_ => {
       const index = this.personalBooks.findIndex(book => book.isbn === isbn);
-      this.personalBooks.splice(index,1);
+      this.personalBooks.splice(index, 1);
     });
   }
 }

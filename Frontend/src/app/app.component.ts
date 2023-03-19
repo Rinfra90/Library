@@ -13,8 +13,9 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
+      // Boolean variable to remove nav buttons from login page
       if (event instanceof NavigationEnd) {
-        // Verifica la URL attuale e imposta showButtons a false se necessario
+        // Verify actual url to see if in login page
         if (event.url === '/login') {
           this.showButtons = false;
         } else {

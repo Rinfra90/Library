@@ -2,14 +2,14 @@
 <div class="upper-menu">
   <a routerLink="/" class="main-logo">
     <h1 class="logo-title">
-        <img src="assets/Book_SVG.svg" alt="Logo" class="logo-image">{{title}}
+      <img src="assets/logo.svg" alt="Logo" class="logo-image">{{title}}
     </h1>
   </a>
 </div>
 <nav *ngIf="showButtons">
-    <a routerLink="/">Home</a>
-    <a routerLink="/books">All books</a>
-    <a routerLink="/userbooks">User's books</a>
+  <a routerLink="/">Home</a>
+  <a routerLink="/books">All books</a>
+  <a routerLink="/userbooks">User's books</a>
 </nav>
 <section></section>
 <router-outlet></router-outlet>

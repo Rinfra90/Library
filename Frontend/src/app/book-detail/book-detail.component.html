@@ -1,16 +1,16 @@
 <div *ngIf="book">
   <h2>{{book.title}}</h2>
-    <div>
-        <img src="assets/{{book.isbn}}.jpg" alt="Book Cover" class="book-image">
-    </div>
-    <div>
-        <span><i>ISBN: {{book.isbn}}</i></span>
-        <p>
-            <span>Added: {{book.add_date | date: 'dd/MM/yyyy'}}<br></span>
-            <span *ngIf="book.remove_date">Removed: {{book.remove_date | date: 'dd/MM/yyyy'}}<br></span>
-            <span>Author: {{book.author}}<br></span>
-        </p>
-    </div>
+  <div>
+    <img src="assets/{{book.isbn}}.jpg" alt="Book Cover" class="book-image">
+  </div>
+  <div>
+    <span><i>ISBN: {{book.isbn}}</i></span>
+    <p>
+      <span>Added: {{book.add_date | date: 'dd/MM/yyyy'}}<br></span>
+      <span *ngIf="book.remove_date">Removed: {{book.remove_date | date: 'dd/MM/yyyy'}}<br></span>
+      <span>Author: {{book.author}}<br></span>
+    </p>
+  </div>
   <button type="button" (click)="addToLibrary(book.isbn)">Add to personal library</button>
   <h3>Story: </h3>
   <span>{{book.story}}</span>

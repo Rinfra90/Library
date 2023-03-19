@@ -3,7 +3,6 @@ import { Book } from '../books';
 import { ActivatedRoute } from '@angular/router'
 import { Location } from '@angular/common';
 import { BookService } from '../book.service';
-import { UserBooks } from '../userbooks';
 
 @Component({
   selector: 'app-book-detail',
@@ -13,11 +12,11 @@ import { UserBooks } from '../userbooks';
 
 export class BookDetailComponent {
 
-  constructor (
+  constructor(
     private route: ActivatedRoute, // holds information about the route to this instance. Need to extract parameter from url
     private location: Location, // help to navigate
     private bookService: BookService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getBook();

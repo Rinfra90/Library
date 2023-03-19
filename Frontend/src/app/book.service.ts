@@ -29,6 +29,7 @@ export class BookService {
     this.messageService.add(`BookService: ${message}`)
   }
 
+  // Need to handle error in wrong data from http requests
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -43,10 +44,17 @@ export class BookService {
     };
   }
 
+  // Need as parameter of http requests
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+  };
+
+  // Used to give access to userID
   getUser(): string {
     return this.userId;
   }
 
+  // post request to /api/user through id
   getUserData(): Observable<any> {
     return this.http.post<any>(this.userUrl, { id: this.getUser() }, this.httpOptions).pipe(
       tap(result => {
@@ -61,6 +69,7 @@ export class BookService {
     )
   }
 
+  // post request to /api/user through id
   login(loginEmail: string) {
     return this.http.post<any>(this.userUrl, { email: loginEmail }, this.httpOptions).pipe(
       tap(result => {
@@ -78,6 +87,7 @@ export class BookService {
     ).subscribe(user => this.userId = user.id)
   }
 
+  // get request to /api/books/:id
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl)
       .pipe(
@@ -86,6 +96,7 @@ export class BookService {
       );
   }
 
+  // get request to /api/books/:id/:isbn
   getBook(isbn: string | null): Observable<Book> {
     return this.http.get<Book>(this.booksUrl + '/' + isbn)
       .pipe(
@@ -94,6 +105,7 @@ export class BookService {
       )
   }
 
+  // get request to /api/books/:id/userbooks
   getUserBooks(): Observable<UserBooks[]> {
     return this.http.get<UserBooks[]>(this.booksUrl + '/userbooks')
       .pipe(
@@ -102,16 +114,13 @@ export class BookService {
       );
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-type': 'application/json' })
-  };
-
+  // put request to /api/books/:id/addread/:isbn
   addBookReadCount(isbn: string): Observable<any> {
     return this.http.put<any>(this.booksUrl + `/addread/` + isbn, null, this.httpOptions).pipe(
       tap(result => {
-        if(result.error){
+        if (result.error) {
           this.log(result.error)
-        } else{
+        } else {
           this.log('Book read count updated')
         }
       }),
@@ -119,12 +128,13 @@ export class BookService {
     )
   }
 
+  // put request to /api/books/:id/removeread/:isbn
   removeBookReadCount(isbn: string): Observable<any> {
     return this.http.put<any>(this.booksUrl + `/removeread/` + isbn, null, this.httpOptions).pipe(
       tap(result => {
-        if(result.error){
+        if (result.error) {
           this.log(result.error)
-        } else{
+        } else {
           this.log('Book read count updated')
         }
       }),
@@ -132,6 +142,7 @@ export class BookService {
     )
   }
 
+  // post request to /api/books/:id
   addToLibrary(isbn: string): Observable<any> {
     const book: UserBooks = {
       user_id: this.getUser(),
@@ -140,9 +151,9 @@ export class BookService {
     }
     return this.http.post<any>(this.booksUrl, book, this.httpOptions).pipe(
       tap(result => {
-        if(result.error){
+        if (result.error) {
           this.log(result.error)
-        } else{
+        } else {
           this.log('Book added to personal library')
         }
       }),
@@ -150,12 +161,13 @@ export class BookService {
     )
   }
 
+  // delete request to /api/books/:id/:isbn
   removeFromLibrary(isbn: string): Observable<any> {
-    return this.http.delete<any>(this.booksUrl+'/'+isbn,this.httpOptions).pipe(
+    return this.http.delete<any>(this.booksUrl + '/' + isbn, this.httpOptions).pipe(
       tap(result => {
-        if(result.error){
+        if (result.error) {
           this.log(result.error)
-        } else{
+        } else {
           this.log('Book removed from library');
         }
       }),

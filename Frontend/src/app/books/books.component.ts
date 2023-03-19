@@ -10,9 +10,9 @@ import { BookService } from '../book.service';
 
 
 export class BooksComponent {
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService) { }
 
-  books : Book[] = [];
+  books: Book[] = [];
 
   getBooks(): void {
     this.bookService.getBooks()

@@ -1,11 +1,11 @@
 .logo-title {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
 .logo-image {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 h1 {
@@ -15,12 +15,12 @@ h1 {
 }
 
 .upper-menu {
-  background-color:aliceblue;
+  background-color: aliceblue;
   display: flex;
   align-items: flex-start;
 }
 
-.upper-menu a{
+.upper-menu a {
   text-decoration: none;
 }
 

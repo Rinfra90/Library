@@ -23,10 +23,10 @@ export class UserProfileComponent {
   };
 
   ngOnInit() {
-    if(this.bookService.getUser() === '' || this.bookService.getUser() === 'error'){
+    if (this.bookService.getUser() === '' || this.bookService.getUser() === 'error') {
       this.router.navigate(['/login']);
     } else {
       this.bookService.getUserData().subscribe(user => this.currentUser = user);
     }
-   }
+  }
 }

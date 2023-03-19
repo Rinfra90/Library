@@ -14,7 +14,7 @@ export class LoginComponent {
     private router: Router
   ) { }
 
-  login(email: string){
+  login(email: string) {
     this.bookService.login(email);
   }
 }
