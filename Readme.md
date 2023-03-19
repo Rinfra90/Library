@@ -119,6 +119,7 @@ Per poter avviare il server di frontend, è necessario installare `npm` e `NodeJ
 La cartella node_modules è stata cancellata. Per reinstallarla, andare nella cartella di progetto da terminale e lanciare il seguente comando `npm install`. Questa procedura è necessaria.
 Il server girerà sotto la porta `4200`.
 Oltre alle richieste del test, il frontend è provvisto di una pagina che visualizza i dati dell'utente attualmente loggato e una pagina che mostra tutti i libri in libreria in modo da poter raggiungere facilmente un libro non posseduto ed aggiungerlo alla propria libreria.
+E' anche stato inserito un servizio di visualizzazione messaggi che viene accompagnato per tutta l'app in modo da tenere in vista un log per aiutare a comprendere i passaggi dell'app già dalla sua esecuzione.
 
 #### Esecuzione
 
