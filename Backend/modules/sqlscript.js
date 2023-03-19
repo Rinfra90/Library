@@ -7,9 +7,7 @@ const connection = mysql.createConnection({
 })
 
 function execQuery(sql, callback) {
-    // connection.connect();
     connection.query(sql, callback);
-    // connection.end();
 }
 
 module.exports = execQuery;

@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const execQuery = require('../modules/sqlscript');
-// const {users} = require('../users')
 
 router.post('/', (req, res) => {
     const user = req.body;
@@ -17,6 +16,7 @@ router.post('/', (req, res) => {
     } else {
         return res.status(400).json({ error: 'Wrong data' })
     }
+
     execQuery(`SELECT * FROM users WHERE ${querySearch}='${userData}'`, (error, results) => {
         if (error) throw error;
         if (results.length > 0) {
@@ -25,9 +25,6 @@ router.post('/', (req, res) => {
             return res.status(200).json({ error: 'User not found' });
         }
     })
-    // Vecchio codice con json
-    // const user = users.find(user => user.id === userID);
-    // res.status(200).json(user);
 })
 
 module.exports = router
