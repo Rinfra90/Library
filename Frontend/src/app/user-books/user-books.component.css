@@ -1,0 +1,47 @@
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  margin: 2rem;
+  background-color: rgb(194, 194, 194);
+  width: 400px;
+  border: 10px;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li a:hover {
+  color: white;
+}
+
+.book {
+  text-align: center;
+  background-color: rgb(189, 189, 189);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.book:hover {
+  background-color: rgb(100, 100, 100);
+}
+
+.preview {
+  display: block;
+  margin: 0 auto;
+}
+
+.book-image {
+  height: 300px;
+}
+
+.book h3 {
+  text-align: center;
+  color: black;
+}

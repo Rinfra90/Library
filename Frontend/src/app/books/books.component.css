@@ -1,0 +1,42 @@
+li {
+  display: flex;
+  text-align: center;
+  padding-bottom: 10px;
+  width: 20%;
+}
+
+li a {
+  padding: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  background-color: aliceblue;
+  color: #3d3d3d;
+  border-radius: 8px;
+  border-style: solid;
+  width: 60%;
+}
+
+li a:hover {
+  color: white;
+  background-color: #7696a3;
+}
+
+li a:active {
+  background-color: #617c86;
+}
+
+.selected {
+  background-color: azure;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0px;
+}
+
+.preview {
+  height: 50px;
+}

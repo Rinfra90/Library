@@ -1,0 +1,16 @@
+<h2>User Books</h2>
+<ul>
+    <li *ngFor="let book of personalBooks" class="book">
+        <a routerLink="/books/{{book.isbn}}">
+          <img src="assets/{{book.isbn}}.jpg" class="preview" alt="Book Image" class="book-image"><h3>{{book.title}}</h3>
+          <span><i>ISBN: {{book.isbn}}</i></span>
+        </a>
+        <div *ngFor="let userBook of userBooks">
+          <div *ngIf="book.isbn === userBook.book_isbn">
+            Readed: {{userBook.read_count}} times
+            <button type="button" (click)="addCount(book.isbn)">+</button><button type="button" (click)="removeCount(book.isbn)">-</button>
+            <div><button type="button" (click)="delete(book.isbn)">Remove from library</button></div>
+          </div>
+        </div>
+    </li>
+</ul>

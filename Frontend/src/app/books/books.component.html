@@ -1,0 +1,9 @@
+<h2>Books</h2>
+<ul>
+    <li *ngFor="let book of books">
+        <a routerLink="/books/{{book.isbn}}">
+          <img src="assets/{{book.isbn}}.jpg" class="preview" alt="Book Image"><h3>{{book.title}}</h3>
+          <span><i>ISBN: {{book.isbn}}</i></span>
+        </a>
+    </li>
+</ul>

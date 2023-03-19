@@ -1,0 +1,14 @@
+.message-box {
+    border-radius: 8px;
+    border-color: black grey grey black;
+    border-width: 4px 2px 2px 4px;
+    border-style:solid;
+    padding: 0px 10px 10px 10px;
+    background-color:rgb(228, 214, 210);
+    width: auto;
+    display: inline-block;
+}
+
+.message-button {
+    border-radius: 10px;
+}
